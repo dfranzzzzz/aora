@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { View, Text } from "react-native";
 import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
-import { LocalAssets } from "@/assets/LocalAssets";
+import { fonts } from "../assets";
 
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
-  const [fontsLoaded, error] = useFonts(LocalAssets.fonts);
+  const [fontsLoaded, error] = useFonts(fonts);
 
   useEffect(() => {
     if (error) throw error;
