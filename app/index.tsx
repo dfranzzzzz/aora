@@ -1,9 +1,11 @@
 import React from "react";
 import { Text, ScrollView, View, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import { images } from "../assets";
+
 import CustomBotton from "@/components/CustomBotton";
 
 const App = () => {
