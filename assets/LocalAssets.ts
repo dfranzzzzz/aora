@@ -13,7 +13,7 @@ export const fonts = {
 export const icons = {
   bookmark: require("./icons/bookmark.png"),
   home: require("./icons/home.png"),
-  plus: require("./icons/home.png"),
+  plus: require("./icons/plus.png"),
   profile: require("./icons/profile.png"),
   leftArrow: require("./icons/left-arrow.png"),
   menu: require("./icons/menu.png"),
