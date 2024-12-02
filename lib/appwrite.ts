@@ -64,7 +64,10 @@ export const createUser = async (
 
 export const signIn = async (email: string, password: string) => {
   try {
+    const deletePrevSession = await account.deleteSessions();
     const session = await account.createEmailPasswordSession(email, password);
+
+    console.log(deletePrevSession);
 
     return session;
   } catch (error: any) {
