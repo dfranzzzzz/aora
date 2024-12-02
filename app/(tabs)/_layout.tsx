@@ -32,9 +32,8 @@ const TabsLayout = () => {
           tabBarActiveTintColor: "#FFA001",
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarStyle: {
-            backgroundColor: "#161622",
-            borderTopWidth: 1,
-            borderTopColor: "#232533",
+            backgroundColor: "#13131E",
+            borderTopWidth: 0,
           },
           tabBarLabelStyle: {
             fontFamily: "Poppins-Regular",
