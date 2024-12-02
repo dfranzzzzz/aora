@@ -9,9 +9,9 @@ declare interface ButtonProps extends TouchableOpacityProps {
 }
 
 declare interface FormFieldProps extends TextInputProps {
-  title: string;
-  value: any;
+  title?: string;
+  value?: any;
   placeholder?: string;
-  handleChangeText: (e: string) => void;
+  handleChangeText?: (e: string) => void;
   otherStyles?: string;
 }
