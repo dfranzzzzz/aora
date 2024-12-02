@@ -3,7 +3,7 @@ import { Text, TouchableOpacity } from "react-native";
 
 import { ButtonProps } from "@/types/type";
 
-const CustomBotton = ({
+const CustomButton = ({
   title,
   handlePress,
   containerStyles,
@@ -26,4 +26,4 @@ const CustomBotton = ({
   );
 };
 
-export default CustomBotton;
+export default CustomButton;

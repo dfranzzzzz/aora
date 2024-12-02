@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
 
-import CustomBotton from "@/components/CustomBotton";
+import CustomBotton from "@/components/CustomButton";
 
 import { useGlobalContext } from "@/context/GlobalContext";
 import { images } from "../assets";

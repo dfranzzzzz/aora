@@ -3,7 +3,7 @@ import { Alert, Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, router } from "expo-router";
 
-import CustomBotton from "@/components/CustomBotton";
+import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
 
 import { signIn } from "@/lib/appwrite";
@@ -63,7 +63,7 @@ const SignIn = () => {
             otherStyles="mt-7"
           />
 
-          <CustomBotton
+          <CustomButton
             title="Sign In"
             containerStyles="mt-7"
             handlePress={submit}
