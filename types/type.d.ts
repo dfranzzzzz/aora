@@ -27,3 +27,12 @@ declare interface VideoCardProps {
     };
   };
 }
+
+declare interface TrendingItemProps {
+  activeItem: any;
+  item: {
+    $id: string;
+    thumbnail: string;
+    video: string;
+  };
+}
