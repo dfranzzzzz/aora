@@ -1,21 +1,34 @@
-import React, { useState } from "react";
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  Alert,
+  FlatList,
+  Image,
+  RefreshControl,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import EmptyState from "@/components/EmptyState";
 import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
 
 import { images } from "@/assets";
-import EmptyState from "@/components/EmptyState";
+import { getAllPosts } from "@/lib/appwrite";
+import useAppwrite from "@/lib/useAppwrite";
 
 const Home = () => {
+  const { data: posts, refetch } = useAppwrite(getAllPosts);
+
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
     setRefreshing(true);
-
+    await refetch;
     setRefreshing(false);
   };
+
+  console.log(posts);
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -51,9 +64,11 @@ const Home = () => {
             </View>
           </View>
         )}
-        data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
+        data={posts}
         keyExtractor={(item) => item.$id}
-        renderItem={({ item }) => <Text className="text-white">{item.id}</Text>}
+        renderItem={({ item }) => (
+          <Text className="text-white">{item.title}</Text>
+        )}
         ListEmptyComponent={() => (
           <EmptyState
             title="No videos found"
