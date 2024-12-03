@@ -56,7 +56,7 @@ export const createUser = async (
 
     if (!newAccount) throw Error;
 
-    const avatarUrl = avatars.getInitials();
+    const avatarUrl = avatars.getInitials("<NAME>");
 
     await signIn(email, password);
 

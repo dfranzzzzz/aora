@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
-import {
-  Alert,
-  FlatList,
-  Image,
-  RefreshControl,
-  Text,
-  View,
-} from "react-native";
+import React, { useState } from "react";
+import { FlatList, Image, RefreshControl, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import EmptyState from "@/components/EmptyState";
 import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
+import VideoCard from "@/components/VideoCard";
 
 import { images } from "@/assets";
 import { getAllPosts } from "@/lib/appwrite";
@@ -66,9 +60,7 @@ const Home = () => {
         )}
         data={posts}
         keyExtractor={(item) => item.$id}
-        renderItem={({ item }) => (
-          <Text className="text-white">{item.title}</Text>
-        )}
+        renderItem={({ item }) => <VideoCard video={item} />}
         ListEmptyComponent={() => (
           <EmptyState
             title="No videos found"
