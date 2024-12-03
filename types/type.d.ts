@@ -15,3 +15,15 @@ declare interface FormFieldProps extends TextInputProps {
   handleChangeText?: (e: string) => void;
   otherStyles?: string;
 }
+
+declare interface VideoCardProps {
+  video: {
+    title: string;
+    thumbnail: string;
+    video: string;
+    creator: {
+      username: string;
+      avatar: string;
+    };
+  };
+}

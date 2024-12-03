@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { icons } from "@/assets";
+import { VideoCardProps } from "@/types/type";
 
 const VideoCard = ({
   video: {
@@ -10,7 +11,7 @@ const VideoCard = ({
     video,
     creator: { username, avatar },
   },
-}) => {
+}: VideoCardProps) => {
   const [play, setPlay] = useState(false);
 
   return (

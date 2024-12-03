@@ -40,7 +40,6 @@ const avatars = new Avatars(client);
 const databases = new Databases(client);
 
 // Register User
-
 export const createUser = async (
   username: string,
   email: string,
@@ -74,11 +73,11 @@ export const createUser = async (
 
     return newUser;
   } catch (error: any) {
-    console.log(error);
     throw new Error(error);
   }
 };
 
+//Sign-in
 export const signIn = async (email: string, password: string) => {
   try {
     const deletePrevSession = await account.deleteSessions();
@@ -86,11 +85,11 @@ export const signIn = async (email: string, password: string) => {
 
     return session;
   } catch (error: any) {
-    console.log(error);
     throw new Error(error);
   }
 };
 
+// Get current usesr
 export const getCurrentUser = async () => {
   try {
     const currentAccount = await account.get();
@@ -108,15 +107,31 @@ export const getCurrentUser = async () => {
     return currentUser.documents[0];
   } catch (error) {
     console.log(error);
+    return null;
   }
 };
 
+//Get all video posts
 export const getAllPosts = async () => {
   try {
     const post = await databases.listDocuments(databaseId, videoCollectionId);
 
     return post.documents;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error);
   }
 };
+
+//Get latest video created posts
+export async function getLatestPosts() {
+  try {
+    const posts = await databases.listDocuments(databaseId, videoCollectionId, [
+      Query.orderDesc("$createdAt"),
+      Query.limit(7),
+    ]);
+
+    return posts.documents;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+}
