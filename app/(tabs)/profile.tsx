@@ -3,6 +3,7 @@ import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import EmptyState from "@/components/EmptyState";
+import InfoBox from "@/components/InfoBox";
 import VideoCard from "@/components/VideoCard";
 
 import useAppwrite from "@/lib/useAppwrite";
@@ -15,8 +16,6 @@ const Profile = () => {
   const { data: posts } = useAppwrite(() => getUserPosts(user.$id));
 
   const logout = () => {};
-
-  console.log(user.avatar);
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -41,6 +40,26 @@ const Profile = () => {
                 source={{ uri: user.avatar }}
                 className="w-[90%] h-[90%] rounded-lg"
                 resizeMode="cover"
+              />
+            </View>
+
+            <InfoBox
+              title={user.username}
+              containerStyles="mt-5"
+              titleStyles="text-lg"
+            />
+
+            <View className="mt-5 flex flex-row">
+              <InfoBox
+                title={posts.length || 0}
+                subtitle="Posts"
+                titleStyles="text-xl"
+                containerStyles="mr-10"
+              />
+              <InfoBox
+                title="1.2k"
+                subtitle="Followers"
+                titleStyles="text-xl"
               />
             </View>
           </View>

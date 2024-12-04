@@ -36,3 +36,10 @@ declare interface TrendingItemProps {
     video: string;
   };
 }
+
+declare interface InfoBoxProps {
+  title: string | number;
+  subtitle?: string;
+  containerStyles?: string;
+  titleStyles?: string;
+}
