@@ -43,9 +43,9 @@ const storage = new Storage(client);
 
 // Register User
 export const createUser = async (
-  username: string,
   email: string,
-  password: string
+  password: string,
+  username: string
 ) => {
   try {
     const newAccount = await account.create(
@@ -173,6 +173,59 @@ export const signOut = async () => {
     throw new Error(error);
   }
 };
+
+// Get File Preview
+export async function getFilePreview(fileId, type) {
+  let fileUrl;
+
+  try {
+    if (type === "video") {
+      fileUrl = storage.getFileView(storageId, fileId);
+    } else if (type === "image") {
+      fileUrl = storage.getFilePreview(
+        storageId,
+        fileId,
+        2000,
+        2000,
+        "top",
+        100
+      );
+    } else {
+      throw new Error("Invalid file type");
+    }
+
+    if (!fileUrl) throw Error;
+
+    return fileUrl;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+}
+
+// Upload File
+export async function uploadFile(file, type) {
+  if (!file) return;
+
+  const asset = {
+    name: file.fileName,
+    type: file.mimeType,
+    size: file.fileSize,
+    uri: file.uri,
+  };
+
+  try {
+    const uploadedFile = await storage.createFile(
+      storageId,
+      ID.unique(),
+      asset
+    );
+
+    const fileUrl = await getFilePreview(uploadedFile.$id, type);
+    return fileUrl;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+}
 
 // Create Video Post
 export async function createVideoPost(form) {
