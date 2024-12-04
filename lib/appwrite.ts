@@ -123,7 +123,7 @@ export const getAllPosts = async () => {
 };
 
 //Get latest video created posts
-export async function getLatestPosts() {
+export const getLatestPosts = async () => {
   try {
     const posts = await databases.listDocuments(databaseId, videoCollectionId, [
       Query.orderDesc("$createdAt"),
@@ -134,4 +134,17 @@ export async function getLatestPosts() {
   } catch (error: any) {
     throw new Error(error);
   }
-}
+};
+
+//Search videos according to query
+export const searchPosts = async (query: string) => {
+  try {
+    const posts = await databases.listDocuments(databaseId, videoCollectionId, [
+      Query.search("title", query),
+    ]);
+
+    return posts.documents;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
