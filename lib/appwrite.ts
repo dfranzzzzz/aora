@@ -148,3 +148,16 @@ export const searchPosts = async (query: string) => {
     throw new Error(error);
   }
 };
+
+//Get videos posted by current user
+export const getUserPosts = async (userId: string) => {
+  try {
+    const posts = await databases.listDocuments(databaseId, videoCollectionId, [
+      Query.equal("creator", userId),
+    ]);
+
+    return posts.documents;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
