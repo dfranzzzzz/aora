@@ -108,7 +108,7 @@ const Trending = ({ posts }) => {
       viewabilityConfig={{
         itemVisiblePercentThreshold: 70,
       }}
-      contentOffset={{ x: 170, y: 0 }}
+      contentOffset={{ x: 140, y: 0 }}
     />
   );
 };
