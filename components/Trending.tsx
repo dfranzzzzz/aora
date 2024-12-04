@@ -13,23 +13,29 @@ import { ResizeMode, Video } from "expo-av";
 
 import { TrendingItemProps } from "@/types/type";
 
-const zoomIn = {
-  0: {
-    scale: 0.9,
+//Customized builtin animations from Animatable
+Animatable.initializeRegistryWithDefinitions({
+  zoomIn: {
+    0: {
+      scaleX: 0.9,
+      scaleY: 0.9,
+    },
+    1: {
+      scaleX: 1,
+      scaleY: 1,
+    },
   },
-  1: {
-    scale: 1,
+  zoomOut: {
+    0: {
+      scaleX: 1,
+      scaleY: 1,
+    },
+    1: {
+      scaleX: 0.9,
+      scaleY: 0.9,
+    },
   },
-};
-
-const zoomOut = {
-  0: {
-    scale: 1,
-  },
-  1: {
-    scale: 0.9,
-  },
-};
+});
 
 const TrendingItem = ({
   activeItem,
@@ -40,7 +46,7 @@ const TrendingItem = ({
   return (
     <Animatable.View
       className="mr-5"
-      animation={activeItem === $id ? zoomIn : zoomOut}
+      animation={activeItem === $id ? "zoomIn" : "zoomOut"}
       duration={500}
     >
       {play ? (
@@ -102,7 +108,7 @@ const Trending = ({ posts }) => {
       viewabilityConfig={{
         itemVisiblePercentThreshold: 70,
       }}
-      contentOffset={{ x: 170 }}
+      contentOffset={{ x: 170, y: 0 }}
     />
   );
 };
