@@ -7,13 +7,15 @@ import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
 import VideoCard from "@/components/VideoCard";
 
-import { images } from "@/assets";
-import { getAllPosts, getLatestPosts } from "@/lib/appwrite";
 import useAppwrite from "@/lib/useAppwrite";
+import { getAllPosts, getLatestPosts } from "@/lib/appwrite";
+import { useGlobalContext } from "@/context/GlobalContext";
+import { images } from "@/assets";
 
 const Home = () => {
   const { data: posts, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts);
+  const { user } = useGlobalContext();
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -37,7 +39,7 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                  dfranzzzzz
+                  {user?.username}
                 </Text>
               </View>
 

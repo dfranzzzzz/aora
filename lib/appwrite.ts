@@ -80,7 +80,6 @@ export const createUser = async (
 //Sign-in
 export const signIn = async (email: string, password: string) => {
   try {
-    const deletePrevSession = await account.deleteSessions();
     const session = await account.createEmailPasswordSession(email, password);
 
     return session;
@@ -157,6 +156,16 @@ export const getUserPosts = async (userId: string) => {
     ]);
 
     return posts.documents;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
+export const signOut = async () => {
+  try {
+    const session = await account.deleteSession("current");
+
+    return session;
   } catch (error: any) {
     throw new Error(error);
   }
