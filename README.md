@@ -56,3 +56,16 @@ npx expo start -c
 **Expo Go**
 
 Download the [Expo Go](https://expo.dev/go) app onto your device, then use it to scan the QR code from Terminal and run.
+
+## 📸 Snippets
+<p>
+  <img src="public/OnboardingScreen.jpg" width="300" />
+  <img src="public/SignInScreen.jpg" width="300" />
+  <img src="public/SignUpScreen.jpg" width="300" />
+  <img src="public/HomeScreen.jpg" width="300" />
+  <img src="public/SearchScreen.jpg" width="300" />
+  <img src="public/CreateScreen.jpg" width="300" />
+  <img src="public/ProfileScreenEmpty.jpg" width="300" />
+  <img src="public/ProfileScreen.jpg" width="300" />
+</p>
+
