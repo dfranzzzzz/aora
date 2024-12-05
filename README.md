@@ -1,50 +1,58 @@
-# Welcome to your Expo app 👋
+# Aora - Video Sharing App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native project included in [JSMastery React Native Course 2024](https://www.youtube.com/watch?v=ZBCUegTZF7M). A course I took as a refresher, and I also added TypeScript implementation, which was not covered in the course.
 
-## Get started
+## ⚙️ Tech Stack
+- React Native
+- TypeScript
+- Expo
+- NativeWind
+- AppWrite
 
-1. Install dependencies
+## 🤖 Features
+- Onboarding Screen
+- User Authentication: Sign-in and Sign-up
+- Home Screen that shows uploaded videos
+- Screen/Tab Navigation: Home, Create, Profile, and Search
+- Text query to find video based on titles
+- Post creation for uploading media (video and images for thumbnail)
 
-   ```bash
-   npm install
-   ```
+## 🚀 Quick start
 
-2. Start the app
+Follow these steps to set up the project locally on your machine.
 
-   ```bash
-    npx expo start
-   ```
+**Prerequisites**
 
-In the output, you'll find options to open the app in a
+Make sure you have the following installed on your machine:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+**Clone the repository and open in your IDE**
 
 ```bash
-npm run reset-project
+git clone https://github.com/dfranzzzzz/aora.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**Installation**
 
-## Learn more
+Install the project dependencies using npm:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm install
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+**Running the Project**
 
-## Join the community
+```bash
+npm start
+```
+or
+```bash
+npx expo start -c
+```
 
-Join our community of developers creating universal apps.
+**Expo Go**
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Download the [Expo Go](https://expo.dev/go) app onto your device, then use it to scan the QR code from Terminal and run.
